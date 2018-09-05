@@ -1,0 +1,28 @@
+<ion-view view-title="Login" align-title="left">
+    <ion-content style="background: url(img/login.jpeg) center; background-size: cover;">
+        <div class="header-rightpad hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h1> </h1>
+            </div>
+        </div>
+        <div class="list">
+            <ion-md-input placeholder="Username" ng-model="username" highlight-color="balanced" type="text"></ion-md-input>
+            <ion-md-input placeholder="Password" ng-model="password" highlight-color="balanced" type="password"></ion-md-input>
+            <p ng-if="errormessage">{{errormessage}}</p>
+        </div>
+        <div class="padding">
+            <button ng-click="signin(username, password)" class="button button-full button-balanced ink">Masuk</button>
+        </div>
+        <div class="padding">
+            <div class="button-bar">
+                <button ui-sref="app.register" class="button button-small button-border button-assertive-900">Pendaftaran</button>
+                <button ui-sref="app.about" class="button button-small button-border button-calm-900">Tentang Kami</button>
+            </div>
+            <button ng-click="lupapassword()" class="button button-full button-balanced ink">Lupa Password</button>
+            <!-- <button ng-click="signin(username, password)" class="button button-full button-balanced ink">Masuk</button> -->
+        </div>
+        <div class="padding">
+        </div>
+    </ion-content>
+</ion-view>

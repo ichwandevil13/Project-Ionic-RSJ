@@ -1,0 +1,24 @@
+<ion-view view-title="{{title}}">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="content">
+            <div ng-if="descriptionpoli" class="list card balanced-100-bg">
+                <div class="item item-body">
+                    <p>{{descriptionpoli}}</p>
+                    <p>
+                        <a class="subdued"></a>
+                    </p>
+                </div>
+            </div>
+            <ion-md-input placeholder="Cari " style="border-width: 0px;" ng-change="fadeSlideInRight()" ng-if="listdokter" ng-model="search.nama_dokter" highlight-color="balanced" type="text" required="true">
+            </ion-md-input>
+            <div class="list animate-ripple">
+                <a href="" ng-click="openProfileDokter(item)" class="item item-avatar item-icon-right" ng-repeat="item in listdokter">
+                    <img src="{{getFoto(item.foto)}}">
+                    <h2>{{item.nama_dokter}}</h2>
+                    <p>{{getDescription(item.deskripsi)}}</p>
+                    <i class="icon ion-chatbubble muted"></i>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

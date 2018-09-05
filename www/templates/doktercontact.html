@@ -1,0 +1,13 @@
+<ion-view view-title="Poli">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="content">
+            <div class="list animate-fade-slide-in-right">
+                <a ng-click="openListDokter(item.daftar_dokter)" class="item item-avatar item-icon-left" ng-repeat="item in listpoli">
+                    <i class="icon ion-android-folder"></i>
+                    <h2>{{item.nama_poli}}</h2>
+                    <p>{{item.deskripsi}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

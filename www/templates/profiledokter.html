@@ -1,0 +1,66 @@
+<ion-view view-title="Profile">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('{{getFoto(datadokter.foto)}}');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('{{getFoto(datadokter.foto)}}');"></div>
+                <h3>
+                    <a class="light title-border">{{datadokter.nama_dokter}}</a>
+                </h3>
+                <h4 class="title-border">{{datadokter.email}}</h4>
+            </div>
+        </div>
+        <div class="tabs-striped tabs-color-balanced" style="position: static; margin-bottom: 15px;">
+            <div class="tabs" style="position: static;">
+                <a class="tab-item {{tab_about}}" ng-click="moveto(1)">
+                    <i class="icon ion-android-person"></i> About
+                </a>
+                <a class="tab-item {{tab_jadwal}}" ng-click="moveto(2)">
+                    <i class="icon ion-arrow-graph-up-right"></i> Jadwal
+                </a>
+                <a class="tab-item {{tab_contact}}" ng-click="moveto(3)">
+                    <i class="icon ion-android-call"></i> Contact
+                </a>
+            </div>
+        </div>
+        <!-- <h4 class="content padding double-padding-x">{{titletab}}</h4> -->
+        <div ng-if="tab_about == 'active'">
+            <div class="list card balanced-100-bg">
+                <div class="item item-body">
+                    <p>{{datadokter.deskripsi}}</p>
+                    <p>
+                        <a class="subdued"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ng-if="tab_jadwal == 'active'">
+            <div class="list">
+                <a class="item item-icon-left" ng-repeat="item in datadokter.jadwal_kerja">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>{{hariarray[item.hari]}}</h2>
+                    <p>{{item.jam_mulai}}-{{item.jam_selesai}}</p>
+                    <p>{{item.keterangan}}</p>
+                </a>
+            </div>
+        </div>
+        <div ng-if="tab_contact == 'active'">
+            <div class="list">
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-call"></i>
+                    <h2>Call Office</h2>
+                    <p>{{datadokter.call_office}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-call"></i>
+                    <h2>Call Mobile</h2>
+                    <p>{{datadokter.call_mobile}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-ios-email"></i>
+                    <h2>Email</h2>
+                    <p>{{datadokter.email}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

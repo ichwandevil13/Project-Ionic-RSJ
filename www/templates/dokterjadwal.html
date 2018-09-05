@@ -1,0 +1,13 @@
+<ion-view view-title="Poli">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="content">
+            <div class="list animate-fade-slide-in-right">
+                <a class="item item-avatar item-icon-left" ng-repeat="item in jadwaldokter">
+                    <i class="icon ion-android-folder"></i>
+                    <h2>{{item.hari}}</h2>
+                    <p>{{item.jam_mulai}} - {{item.jam_selesai}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

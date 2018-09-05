@@ -1,0 +1,249 @@
+<ion-view view-title="Daftar Pasien" align-title="left">
+    <ion-content>
+        <div class="header-rightpad hero no-header flat slide-up">
+            <div class="content">
+                <div class="app-icon-center"></div>
+            </div>
+        </div>
+        <form name="userForm" novalidate ng-submit="userForm.$valid && simpan(modeluser)">
+            <div class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="typepasien.lama">
+                </label>
+                <p>Pasien Lama
+                </p>
+            </div>
+            <div class="list" ng-if="!typepasien.lama">
+                <ion-md-input name="nama_lengkap" placeholder="Nama Lengkap*" ng-model="modeluser.nama_pasien" highlight-color="{{(userForm.nama_lengkap.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.nama_lengkap.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="tempat_lahir" placeholder="Tempat Lahir*" ng-model="modeluser.tempat_lahir" highlight-color="{{(userForm.tempat_lahir.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.tempat_lahir.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="tanggal_lahir" placeholder="Tanggal Lahir*" ng-model="modeluser.tanggal_lahir" highlight-color="{{(userForm.tanggal_lahir.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="date" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.tanggal_lahir.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="agama" placeholder="Agama*" ng-model="modeluser.agama_pasien" highlight-color="{{(userForm.agama.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.agama.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-search-select title="Pilih Jenis Kelamin" key-property="id" value-property="name" options="optionsjeniskelamin.list" option-selected="optionsjeniskelamin.selected">
+                    <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                        <ion-md-input name="jenis_kelamin" placeholder="Jenis Kelamin*" ng-model="optionsjeniskelamin.selected.name" highlight-color="{{(userForm.jenis_kelamin.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                            type="text" required="true">
+                        </ion-md-input>
+                    </label>
+                </ion-search-select>
+                <div ng-show="userForm.jenis_kelamin.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-search-select title="Pilih Status Kawin" key-property="id" value-property="name" options="optionsstatuskawin.list" option-selected="optionsstatuskawin.selected">
+                    <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                        <ion-md-input name="status_kawin" placeholder="Status Kawin*" ng-model="optionsstatuskawin.selected.name" highlight-color="{{(userForm.status_kawin.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                            type="text" required="true">
+                        </ion-md-input>
+                    </label>
+                </ion-search-select>
+                <div ng-show="userForm.status_kawin.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-search-select title="Pilih Pendidikan" key-property="id" value-property="name" options="optionspendidikan.list" option-selected="optionspendidikan.selected">
+                    <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                        <ion-md-input name="pendidikan" placeholder="Pendidikan*" ng-model="optionspendidikan.selected.name" highlight-color="{{(userForm.pendidikan.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                            type="text" required="true">
+                        </ion-md-input>
+                    </label>
+                </ion-search-select>
+                <div ng-show="userForm.pendidikan.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="pekerjaan" placeholder="Pekerjaan*" ng-model="modeluser.pekerjaan" highlight-color="{{(userForm.pekerjaan.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pekerjaan.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="alamat" placeholder="Alamat*" ng-model="modeluser.alamat_pasien" highlight-color="{{(userForm.alamat.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.alamat.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="nama_bapak" placeholder="Nama Bapak*" ng-model="modeluser.nama_bapak" highlight-color="{{(userForm.nama_bapak.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.nama_bapak.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="nama_ibu" placeholder="Nama Ibuk*" ng-model="modeluser.nama_ibu" highlight-color="{{(userForm.nama_ibu.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.nama_ibu.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="nama_suami_istri" placeholder="Nama Suami/Istri*" ng-model="modeluser.nama_suami_istri" highlight-color="{{(userForm.nama_suami_istri.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.nama_suami_istri.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <h4 style="margin-left: 12px;">Penanggung Jawab</h4>
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="sayasendiri" ng-change="gunakandatasaya(sayasendiri)">
+                    </label>
+                    <p>Saya Sendiri
+                    </p>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_nama" placeholder="Nama*" ng-model="modeluser.pj_nama" highlight-color="{{(userForm.pj_nama.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_nama.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_alamat" placeholder="Alamat*" ng-model="modeluser.pj_alamat" highlight-color="{{(userForm.pj_alamat.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_alamat.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_telepon" placeholder="Telpon*" ng-model="modeluser.pj_telepon" highlight-color="{{(userForm.pj_telepon.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_telepon.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_bahasa" placeholder="Bahasa*" ng-model="modeluser.pj_bahasa" highlight-color="{{(userForm.pj_bahasa.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_bahasa.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <div class="list card balanced-100-bg">
+                    <div class="item item-avatar">
+                        <h2>PERSETUJUAN UMUM</h2>
+                    </div>
+                    <div class="item item-body">
+                        <div class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="setuju.persetujuan1">
+                            </label>
+                            <p>Dengan ini saya menyatakan bahwa saya akan mentaati peraturan yang ada di Rumah Sakit Jiwa Daerah Surakarta
+                            </p>
+                        </div>
+                        <div class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="setuju.persetujuan2">
+                            </label>
+                            <p> Dengan ini saya menyatakan setuju untuk dilakukan pemeriksaan/tindakan yang diperlukan dalam upaya Kesembuhan/Keselamatan/Keterangan Medis saya/pasien tersebut</p>
+                        </div>
+                        <div class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="setuju.persetujuan3">
+                            </label>
+                            <p>Saya memberi kuasa kepada dokter yang merawat saya untuk memberikan keterangan medis saya kepada pihak yang bertanggung jawab atas biaya perawatan saya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <!-- <div class="item range range-positive">
+                    <i class="icon ion-ios-sunny-outline"></i>
+                    <input type="range" name="volume" min="0" max="100" value="33">
+                    <i class="icon ion-ios-sunny"></i>
+                </div> -->
+                <button type="submit" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1">
+                    Submit
+                </button>
+            </div>
+            <div class="list" ng-if="typepasien.lama">
+                <!-- <ion-md-input name="nomor_rekam_medis" placeholder="Nomor Rekam Medis*" ng-model="modeluser.nomor_rekam_medis" highlight-color="{{(userForm.nomor_rekam_medis.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true"> -->
+                </ion-md-input>
+                <div ng-show="userForm.nomor_rekam_medis.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="nama_lengkap" placeholder="Nama Lengkap*" ng-model="modeluser.nama_pasien" highlight-color="{{(userForm.nama_lengkap.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.nama_lengkap.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="tempat_lahir" placeholder="Tempat Lahir*" ng-model="modeluser.tempat_lahir" highlight-color="{{(userForm.tempat_lahir.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.tempat_lahir.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input name="tanggal_lahir" placeholder="Tanggal Lahir*" ng-model="modeluser.tanggal_lahir" highlight-color="{{(userForm.tanggal_lahir.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="date" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.tanggal_lahir.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <h4 style="margin-left: 12px;">Penanggung Jawab</h4>
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="sayasendiri" ng-change="gunakandatasaya(sayasendiri)">
+                    </label>
+                    <p>Saya Sendiri
+                    </p>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_nama" placeholder="Nama*" ng-model="modeluser.pj_nama" highlight-color="{{(userForm.pj_nama.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_nama.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_alamat" placeholder="Alamat*" ng-model="modeluser.pj_alamat" highlight-color="{{(userForm.pj_alamat.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_alamat.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_telepon" placeholder="Telpon*" ng-model="modeluser.pj_telepon" highlight-color="{{(userForm.pj_telepon.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_telepon.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <ion-md-input ng-if="!sayasendiri" name="pj_bahasa" placeholder="Bahasa*" ng-model="modeluser.pj_bahasa" highlight-color="{{(userForm.pj_bahasa.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.pj_bahasa.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <div class="list card balanced-100-bg">
+                    <div class="item item-avatar">
+                        <h2>PERSETUJUAN UMUM</h2>
+                    </div>
+                    <div class="item item-body">
+                        <div class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="setuju.persetujuan1">
+                            </label>
+                            <p>Dengan ini saya menyatakan bahwa saya akan mentaati peraturan yang ada di Rumah Sakit Jiwa Daerah Surakarta
+                            </p>
+                        </div>
+                        <div class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="setuju.persetujuan2">
+                            </label>
+                            <p> Dengan ini saya menyatakan setuju untuk dilakukan pemeriksaan/tindakan yang diperlukan dalam upaya Kesembuhan/Keselamatan/Keterangan Medis saya/pasien tersebut</p>
+                        </div>
+                        <div class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="setuju.persetujuan3">
+                            </label>
+                            <p>Saya memberi kuasa kepada dokter yang merawat saya untuk memberikan keterangan medis saya kepada pihak yang bertanggung jawab atas biaya perawatan saya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <!-- <div class="item range range-positive">
+                    <i class="icon ion-ios-sunny-outline"></i>
+                    <input type="range" name="volume" min="0" max="100" value="33">
+                    <i class="icon ion-ios-sunny"></i>
+                </div> -->
+                <button type="submit" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

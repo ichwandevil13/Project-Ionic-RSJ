@@ -1,0 +1,89 @@
+<ion-side-menus enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-balanced" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="left">
+            <!-- <ion-nav-back-button side="right" class="no-text">
+            </ion-nav-back-button> -->
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+            <!-- <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-android-more-vertical" id="menu-popover" ng-click="popover.show($event)"></button>
+            </ion-nav-buttons> -->
+        </ion-nav-bar>
+        <ion-nav-view name="fabContent"></ion-nav-view>
+        <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar class="dark-bg expanded">
+            <span class="avatar avatar motion spin fade" style="background: url('img/logo11.png'); background-size: cover;"></span>
+            <h2>RSJD Dr. Arif Zainudin</h2>
+        </ion-header-bar>
+        <ion-content class="stable-bg has-expanded-header">
+            <ion-list ng-if="authstorage.token">
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.profile')">
+                    Profil
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.listpasien')">
+                    Data Pasien
+                </ion-item>
+
+                <ion-item-divider>
+                    <hr>
+                </ion-item-divider>
+
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.poli')">
+                    Pelayanan
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.dokter')">
+                    Dokter
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.about')">
+                    Tentang
+                </ion-item>
+
+                <ion-item-divider>
+                    <hr>
+                </ion-item-divider>
+
+                <ion-item nav-clear menu-close ng-click="signout()">
+                    Keluar
+                </ion-item>
+
+                <ion-item-divider>
+                    <hr>
+                </ion-item-divider>
+            </ion-list>
+            <ion-list ng-if="authstorage.token == null">
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.poli')">
+                    Pelayanan
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.dokter')">
+                    Dokter
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.about')">
+                    Tentang
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.login')">
+                    Masuk
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="gosomewhere('app.register')">
+                    Daftar
+                </ion-item>
+
+                <ion-item-divider>
+                    <hr>
+                </ion-item-divider>
+            </ion-list>
+            <div class="list card balanced-100-bg">
+                <div class="item item-body">
+                    <p style="font-weight: lighter;"> Alamat : Jl. KH. Dewantara No. 80 Jebres, Surakarta 57126</p>
+                    <p>
+                        Telp. : (0271) 641442 </br>
+                        IGD : (0271) 789 04 05
+                    </p>
+                </div>
+            </div>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

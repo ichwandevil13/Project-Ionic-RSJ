@@ -1,0 +1,10 @@
+{
+  "name": "RSJD Dr Arif Zainudin Surakarta",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://api.rsjd-arifzainudin.co.id/apps/"
+    }
+  ]
+}

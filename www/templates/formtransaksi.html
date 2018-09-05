@@ -1,0 +1,71 @@
+<ion-view view-title="Form Periksa" align-title="left">
+    <ion-content>
+        <div class="header-rightpad hero no-header flat slide-up">
+            <div class="content">
+                <div class="app-icon-center"></div>
+            </div>
+        </div>
+        <form name="userForm" novalidate ng-submit="userForm.$valid && simpan(modeluser)">
+            <div class="list">
+
+                <label class="item item-input item-md-label ng-valid ng-valid-required" name="tanggal_periksa" placeholder="Tanggal Periksa*" ng-disabled="true" ng-model="modeluser.tanggal_periksa" highlight-color="balanced" type="text" required="required">
+                    <input type="text" disabled="disabled" class="md-input ng-valid used ng-valid-required ng-touched ng-dirty ng-valid-parse" name="tanggal_periksa"
+                        ng-model="modeluser.tanggal_periksa" required="required">
+                    <span class="input-label">Tanggal Periksa*</span>
+                    <div class="highlight highlight-balanced">
+
+                    </div>
+                </label>
+
+                <!-- <ion-md-input name="tanggal_periksa" placeholder="Tanggal Periksa*" disabled="disabled" ng-disabled="true" ng-model="modeluser.tanggal_periksa" highlight-color="{{(userForm.tanggal_periksa.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                    type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.tanggal_periksa.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div> -->
+
+                <ion-search-select title="Pilih Poli" key-property="id" value-property="name" options="optionspolitujuan.list" option-selected="optionspolitujuan.selected">
+                    <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                        <ion-md-input name="id_poli" placeholder="Poli Tujuan*" ng-model="optionspolitujuan.selected.name" highlight-color="{{(userForm.id_poli.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                            type="text" required="true">
+                        </ion-md-input>
+                    </label>
+                </ion-search-select>
+                <div ng-show="userForm.id_poli.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <!-- <ion-search-select ng-if="optionspolitujuan.selected.optionsdokter" title="Pilih Dokter" key-property="id" value-property="name" options="optionspolitujuan.selected.optionsdokter" option-selected="optionspolitujuan.selectedokter">
+                    <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                        <ion-md-input name="id_dokter" placeholder="Dokter Tujuan*" ng-model="optionspolitujuan.selectedokter.name" highlight-color="{{(userForm.id_dokter.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                            type="text" required="true">
+                        </ion-md-input>
+                    </label>
+                </ion-search-select>
+                <div ng-show="userForm.id_dokter.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div> -->
+
+                <ion-search-select title="Pilih Cara bayar" key-property="id" value-property="name" options="optionscarabayar.list" option-selected="optionscarabayar.selected">
+                    <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                        <ion-md-input name="cara_bayar" placeholder="Cara bayar*" ng-model="optionscarabayar.selected.name" highlight-color="{{(userForm.cara_bayar.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                            type="text" required="true">
+                        </ion-md-input>
+                    </label>
+                </ion-search-select>
+                <div ng-show="userForm.cara_bayar.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="catatan" placeholder="Catatan*" ng-model="modeluser.catatan" highlight-color="{{(userForm.catatan.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.catatan.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+                <button type="submit" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

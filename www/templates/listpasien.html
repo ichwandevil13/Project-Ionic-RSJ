@@ -1,0 +1,17 @@
+<ion-view view-title="Daftar Pasien">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <ion-md-input placeholder="Cari " style="border-width: 0px;" ng-change="fadeSlideInRight()" ng-model="search.nama_pasien" highlight-color="balanced" type="text" required="true">
+        </ion-md-input>
+        <div class="content">
+            <div class="list animate-ripple">
+                <div ng-repeat="item in listpasien">
+                    <a ng-click="openProfilePasien(item)" class="item item-icon-left">
+                        <i class="icon ion-person-stalker"></i>
+                        <h2>{{item.nama_pasien}}</h2>
+                        <p>{{getDescription(item.alamat_pasien)}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

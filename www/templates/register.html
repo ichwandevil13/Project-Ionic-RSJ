@@ -1,0 +1,59 @@
+<ion-view view-title="Register" align-title="left">
+    <ion-content style="background: url(img/login.jpeg) center; background-size: cover;">
+        <div class="header-leftpad no-header flat ">
+            <div class="content">
+                <div class="app-icon"></div>
+            </div>
+        </div>
+        <form name="userForm" novalidate>
+            <div class="list">
+                <ion-md-input name="display_name" placeholder="Nama Lengkap*" ng-model="modeluser.display_name" highlight-color="{{(userForm.display_name.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.display_name.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="username" placeholder="Username*" ng-model="modeluser.username" highlight-color="{{(userForm.username.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.username.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="email" placeholder="Email*" ng-model="modeluser.email" highlight-color="{{(userForm.email.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.email.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="phone" placeholder="Nomor Telp*" ng-model="modeluser.description.phone" highlight-color="{{(userForm.phone.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.phone.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="alamat" placeholder="Alamat*" ng-model="modeluser.description.alamat" highlight-color="{{(userForm.alamat.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="text" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.alamat.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="password" placeholder="Password*" ng-model="modeluser.password" highlight-color="{{(userForm.password.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}" type="password" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.password.$error.required && userForm.$submitted">
+                    <label class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                </div>
+
+                <ion-md-input name="repassword" placeholder="Re-Password*" ng-model="modeluser.repassword" password-confirm match-target="modeluser.password" highlight-color="{{(userForm.repassword.$error.required && userForm.$submitted) ? 'assertive' : 'balanced' }}"
+                    type="password" required="true">
+                </ion-md-input>
+                <div ng-show="userForm.$submitted">
+                    <label ng-show="userForm.repassword.$error.required" class="label-error-message" ng-message='required'>Mohon isi data ini!</label>
+                    <label ng-show="userForm.repassword.$error.match" class="label-error-message" ng-message='required'>Password tidak sama!</label>
+                </div>
+            </div>
+            <div class="padding">
+                <button ng-click="regiser(modeluser)" class="button button-full button-assertive ink">Daftar</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

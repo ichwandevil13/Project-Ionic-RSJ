@@ -1,0 +1,15 @@
+<ion-view view-title="Pelayanan Medis">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <ion-md-input placeholder="Cari " style="border-width: 0px;" ng-change="fadeSlideInRight()" ng-model="search.nama_poli" highlight-color="balanced" type="text" required="true">
+        </ion-md-input>
+        <div class="content">
+            <div class="list animate-ripple">
+                <a ng-click="openListDokter(item.daftar_dokter, item.deskripsi, item.nama_poli)" class="item item-icon-left" ng-repeat="item in listpoli">
+                    <i class="icon ion-android-folder"></i>
+                    <h2>{{item.nama_poli}}</h2>
+                    <p>{{getDescription(item.deskripsi)}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

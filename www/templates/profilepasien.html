@@ -1,0 +1,134 @@
+<ion-view view-title="Profil Pasien">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('img/bgrsjd.jpg');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('img/user-profile.png');"></div>
+                <h3>
+                    <a class="light title-border">{{profile.nama_pasien}}</a>
+                </h3>
+            </div>
+        </div>
+        <div class="tabs-striped tabs-color-balanced" style="position: static; margin-bottom: 15px;">
+            <div class="tabs" style="position: static;">
+                <a class="tab-item {{tab_about}}" ng-click="moveto(1)">
+                    <i class="icon ion-android-person"></i> About
+                </a>
+                <a class="tab-item {{tab_transaksi}}" ng-click="moveto(2)">
+                    <i class="icon ion-arrow-graph-up-right"></i> Jadwal
+                </a>
+            </div>
+        </div>
+        <!-- <h4 class="content padding double-padding-x">{{titletab}}</h4> -->
+        <div ng-if="tab_about == 'active'">
+            <div class="bar bar-header bar-balanced" style="position: static; margin-bottom: 25px;">
+                <div class="h1 title title-left light">Profil</div>
+            </div>
+            <div class="list">
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Tempat Lahir</h2>
+                    <p>{{profile.tempat_lahir}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Tanggal Lahir</h2>
+                    <p>{{profile.tanggal_lahir}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Agama</h2>
+                    <p>{{profile.agama_pasien}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Jenis Kelamin</h2>
+                    <p>{{profile.jenis_kelamin[0]}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Status Kawin</h2>
+                    <p>{{profile.status_kawin}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Pendidikan</h2>
+                    <p>{{profile.pendidikan}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Pekerjaan</h2>
+                    <p>{{profile.pekerjaan}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Alamat</h2>
+                    <p>{{profile.alamat_pasien}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Nama Bapak</h2>
+                    <p>{{profile.nama_bapak}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Nama Ibuk</h2>
+                    <p>{{profile.nama_ibu}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Nama Suami/Istri</h2>
+                    <p>{{profile.nama_suami_istri}}</p>
+                </a>
+                <a class="item">
+                    <h2>Penanggung Jawab</h2>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Nama</h2>
+                    <p>{{profile.pj_nama}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Alamat</h2>
+                    <p>{{profile.pj_alamat}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Telepone</h2>
+                    <p>{{profile.pj_telepon}}</p>
+                </a>
+                <a class="item item-icon-left">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>Bahasa</h2>
+                    <p>{{profile.pj_bahasa}}</p>
+                </a>
+            </div>
+        </div>
+        <div ng-if="tab_transaksi == 'active'">
+            <div class="bar bar-header bar-balanced" style="position: static; margin-bottom: 25px;">
+                <!-- <div class="buttons buttons-right header-item">
+                    <span class="right-buttons">
+                        <button ng-click="openFormTransaksi(profile)" class="button button-fab button-energized icon ion-plus">
+                        </button>
+                    </span>
+                </div>
+                <div class="h1 title title-left fab-right light">Daftar Transaksi</div> -->
+                <div class="h1 title title-left light">Pendaftaran</div>
+                <div class="buttons buttons-right header-item">
+                    <span class="right-buttons">
+                        <button ng-click="openFormTransaksi(profile)" class="button button-energized-900 button-fab">
+                            <i class="icon ion-plus"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="list">
+                <a class="item item-icon-left" ng-repeat="item_ in datatransaksi">
+                    <i class="icon ion-android-checkbox-outline"></i>
+                    <h2>{{item_.tanggal_periksa}}</h2>
+                    <p>{{item_.catatan}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

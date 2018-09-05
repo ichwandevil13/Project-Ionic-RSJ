@@ -1,0 +1,38 @@
+<ion-view view-title="Profil">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('img/bgrsjd.jpg');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('img/user-profile.png');"></div>
+                <h3>
+                    <a class="title-border light">{{profile.user_display_name}}</a>
+                </h3>
+                <h4 class="title-border">{{profile.user_email}}</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-balanced tabs-icon-top static">
+            <a ui-sref="app.listpasien" class="tab-item">
+                <i class="icon ion-android-people"></i> Daftar Pasien
+            </a>
+            <!-- <a class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Transaksi
+            </a> -->
+        </div>
+        <div class="list">
+            <a class="item item-icon-left">
+                <i class="icon ion-ios-email"></i>
+                <h2>Email</h2>
+                <p>{{profile.user.email}}</p>
+            </a>
+            <a class="item item-icon-left" ng-repeat="(key, value) in profile.user.description">
+                <i class="icon ion-android-checkbox-outline"></i>
+                <h2>{{key}}</h2>
+                <p>{{value}}</p>
+            </a>
+            <a class="item item-icon-left">
+                <i class="icon ion-information"></i>
+                <h2>Registered</h2>
+                <p>{{profile.user.registered}}</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
